@@ -24,6 +24,7 @@ import java.net.Socket;
  */
 public class TraditionalServer {
     public static void main(String[] args) throws Exception {
+        // sas
         ServerSocket serverSocket = new ServerSocket(2000);
         System.out.println("serverSocket = " +serverSocket.getLocalSocketAddress());
         while (true){
