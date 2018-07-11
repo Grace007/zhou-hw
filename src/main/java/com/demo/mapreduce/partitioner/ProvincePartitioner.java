@@ -6,6 +6,7 @@ import org.apache.hadoop.mapreduce.Partitioner;
 import java.util.HashMap;
 
 /**
+ * reduce的数量决定最后结果文件的数量
  * @author eli
  * @date 2017/10/16 16:37
  */

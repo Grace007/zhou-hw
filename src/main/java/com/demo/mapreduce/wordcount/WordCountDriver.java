@@ -17,6 +17,8 @@ import org.apache.hadoop.mapreduce.lib.output.FileOutputFormat;
  * 最后提交给yarn
  *
  * 打包的时候是没有lib包的(依赖的包),但是hadoop中是有这些jar包的,所以可以运行 , 表现在运行之前的命令
+ *
+ * //com.demo.mapreduce.wordcount.WordCountDriver
  * hadoop
  * @author
  */
@@ -25,8 +27,10 @@ public class WordCountDriver {
 
         if (args == null || args.length == 0) {
             args = new String[2];
-            args[0] = "hdfs://mini1:9000/wordcount/input/";
-            args[1] = "hdfs://mini1:9000/wordcount/output/";
+//            args[0] = "hdfs://mini1:9000/wordcount/input/";
+//            args[1] = "hdfs://mini1:9000/wordcount/output/";
+            args[0] = "hdfs://hadoop04/user/test/wordcount/input/";
+            args[1] = "hdfs://hadoop04/user/test/wordcount/output/";
         }
 
         Configuration conf = new Configuration();

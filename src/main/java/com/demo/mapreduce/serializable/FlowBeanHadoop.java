@@ -1,4 +1,4 @@
-package com.demo.mapreduce.partitioner;
+package com.demo.mapreduce.serializable;
 
 import org.apache.hadoop.io.WritableComparable;
 
@@ -11,15 +11,15 @@ import java.io.IOException;
  * @date 2017/10/16 16:39
  *
  */
-public class FlowBean implements WritableComparable<FlowBean> {
+public class FlowBeanHadoop implements WritableComparable<FlowBeanHadoop> {
     private long upFlow;
     private long dFlow;
     private long sumFlow;
 
     //反序列化时，需要反射调用空参构造函数，所以要显示定义一个
-    public FlowBean(){}
+    public FlowBeanHadoop(){}
 
-    public FlowBean(long upFlow, long dFlow) {
+    public FlowBeanHadoop(long upFlow, long dFlow) {
         this.upFlow = upFlow;
         this.dFlow = dFlow;
         this.sumFlow = upFlow + dFlow;
@@ -73,14 +73,8 @@ public class FlowBean implements WritableComparable<FlowBean> {
 
         return upFlow + "\t" + dFlow + "\t" + sumFlow;
     }
-
-    /**
-     * 分区需要排序规则
-     * @param o
-     * @return
-     */
     @Override
-    public int compareTo(FlowBean o) {
+    public int compareTo(FlowBeanHadoop o) {
         //自定义倒序比较规则
         return sumFlow > o.getSumFlow() ? -1:1;
     }

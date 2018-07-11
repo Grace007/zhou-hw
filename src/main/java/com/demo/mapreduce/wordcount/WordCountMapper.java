@@ -41,6 +41,7 @@ public class WordCountMapper extends Mapper<LongWritable,Text,Text,IntWritable> 
        for (String word:words){
            //将单词作为key，将次数1作为value，以便于后续的数据分发，可以根据单词分发，以便于相同单词会到相同的reduce task
            context.write(new Text(word),new IntWritable(1));
+
        }
 
    }
